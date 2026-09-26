@@ -1,0 +1,112 @@
+﻿python : WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+At line:3 char:1
++ python multihead_attention.py *> run_log.txt
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (WARNING: All lo...itten to STDERR:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+I0000 00:00:1790311959.939644    6712 port.cc:153] oneDNN custom operations are on. You may see slightly different 
+numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the 
+environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+C:\Users\Naveen 
+P\AppData\Local\Programs\Python\Python310\lib\site-packages\google\api_core\_python_version_support.py:266: 
+FutureWarning: You are using a Python version (3.10.11) which Google will stop supporting in new releases of 
+google.api_core once it reaches its end of life (2026-10-04). Please upgrade to the latest Python version, or at least 
+Python 3.11, to continue receiving updates for google.api_core past that date.
+  warnings.warn(message, FutureWarning)
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1790311970.151519    6712 port.cc:153] oneDNN custom operations are on. You may see slightly different 
+numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the 
+environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+I0000 00:00:1790311985.759713    6712 cpu_feature_guard.cc:227] This TensorFlow binary is optimized to use available 
+CPU instructions in performance-critical operations.
+To enable the following instructions: SSE3 SSE4.1 SSE4.2 AVX AVX2 AVX_VNNI FMA, in other operations, rebuild 
+TensorFlow with the appropriate compiler flags.
+WARNING:tensorflow:From C:\Users\Naveen 
+P\AppData\Local\Programs\Python\Python310\lib\site-packages\keras\src\backend\tensorflow\core.py:232: The name 
+tf.placeholder is deprecated. Please use tf.compat.v1.placeholder instead.
+
+C:\Users\Naveen P\AppData\Local\Programs\Python\Python310\lib\site-packages\keras\src\layers\layer.py:970: 
+UserWarning: Layer 'positional_encoding' (of type PositionalEncoding) was passed an input with a mask attached to it. 
+However, this layer does not support masking and will therefore destroy the mask information. Downstream layers will 
+not see the mask.
+  warnings.warn(
+WARNING:tensorflow:TensorFlow GPU support is not available on native Windows for TensorFlow >= 2.11. Even if 
+CUDA/cuDNN are installed, GPU will not be used. Please use WSL2 or the TensorFlow-DirectML plugin.
+======================================================================
+PART 1: Scaled dot-product & multi-head attention - mechanics
+======================================================================
+
+Single-head attention: input (6, 16) -> output (6, 16)
+Attention weight matrix (one row per query, sums to 1 across keys):
+[[0.165 0.173 0.169 0.165 0.163 0.165]
+ [0.176 0.159 0.16  0.171 0.166 0.168]
+ [0.171 0.17  0.16  0.171 0.164 0.164]
+ [0.16  0.165 0.169 0.169 0.169 0.168]
+ [0.152 0.198 0.178 0.154 0.158 0.16 ]
+ [0.164 0.173 0.17  0.163 0.165 0.165]]
+
+Multi-head attention (4 heads): output shape (6, 16) (same as input - each head sees a 4-dim slice, concatenated back to 16)
+  Head 0: attention weights for token 0 -> [0.179 0.149 0.158 0.167 0.176 0.171]
+  Head 1: attention weights for token 0 -> [0.165 0.167 0.169 0.168 0.163 0.168]
+  Head 2: attention weights for token 0 -> [0.167 0.165 0.169 0.168 0.165 0.166]
+  Head 3: attention weights for token 0 -> [0.165 0.165 0.166 0.165 0.169 0.169]
+
+Vocab size: 8000
+Train: 8530, val: 1066
+Model: "functional_1"
+┌─────────────────────────────────┬────────────────────────┬───────────────┐
+│ Layer (type)                    │ Output Shape           │       Param # │
+├─────────────────────────────────┼────────────────────────┼───────────────┤
+│ input_layer (InputLayer)        │ (None, 40)             │             0 │
+├─────────────────────────────────┼────────────────────────┼───────────────┤
+│ embedding (Embedding)           │ (None, 40, 64)         │       512,000 │
+├─────────────────────────────────┼────────────────────────┼───────────────┤
+│ positional_encoding             │ (None, 40, 64)         │             0 │
+│ (PositionalEncoding)            │                        │               │
+├─────────────────────────────────┼────────────────────────┼───────────────┤
+│ transformer_encoder_block       │ (None, 40, 64)         │        33,472 │
+│ (TransformerEncoderBlock)       │                        │               │
+├─────────────────────────────────┼────────────────────────┼───────────────┤
+│ global_average_pooling1d        │ (None, 64)             │             0 │
+│ (GlobalAveragePooling1D)        │                        │               │
+├─────────────────────────────────┼────────────────────────┼───────────────┤
+│ dropout_1 (Dropout)             │ (None, 64)             │             0 │
+├─────────────────────────────────┼────────────────────────┼───────────────┤
+│ dense_2 (Dense)                 │ (None, 1)              │            65 │
+└─────────────────────────────────┴────────────────────────┴───────────────┘
+ Total params: 545,537 (2.08 MB)
+ Trainable params: 545,537 (2.08 MB)
+ Non-trainable params: 0 (0.00 B)
+Epoch 1/12
+267/267 - 16s - 59ms/step - accuracy: 0.5218 - loss: 0.7092 - val_accuracy: 0.6154 - val_loss: 0.6815
+Epoch 2/12
+267/267 - 8s - 30ms/step - accuracy: 0.6897 - loss: 0.5754 - val_accuracy: 0.7298 - val_loss: 0.5292
+Epoch 3/12
+267/267 - 8s - 31ms/step - accuracy: 0.8574 - loss: 0.3274 - val_accuracy: 0.7580 - val_loss: 0.5698
+Epoch 4/12
+267/267 - 8s - 31ms/step - accuracy: 0.9203 - loss: 0.2032 - val_accuracy: 0.7458 - val_loss: 0.7919
+Epoch 5/12
+267/267 - 8s - 30ms/step - accuracy: 0.9539 - loss: 0.1293 - val_accuracy: 0.7439 - val_loss: 0.9180
+Epoch 6/12
+267/267 - 7s - 28ms/step - accuracy: 0.9739 - loss: 0.0765 - val_accuracy: 0.7317 - val_loss: 1.2037
+Epoch 7/12
+267/267 - 8s - 30ms/step - accuracy: 0.9818 - loss: 0.0561 - val_accuracy: 0.7205 - val_loss: 1.2924
+Epoch 8/12
+267/267 - 8s - 31ms/step - accuracy: 0.9843 - loss: 0.0473 - val_accuracy: 0.7205 - val_loss: 1.2988
+Epoch 9/12
+267/267 - 8s - 31ms/step - accuracy: 0.9852 - loss: 0.0458 - val_accuracy: 0.7326 - val_loss: 1.3795
+Epoch 10/12
+267/267 - 8s - 30ms/step - accuracy: 0.9846 - loss: 0.0432 - val_accuracy: 0.7280 - val_loss: 1.4129
+Epoch 11/12
+267/267 - 8s - 29ms/step - accuracy: 0.9903 - loss: 0.0292 - val_accuracy: 0.7270 - val_loss: 1.5737
+Epoch 12/12
+267/267 - 8s - 30ms/step - accuracy: 0.9940 - loss: 0.0155 - val_accuracy: 0.7167 - val_loss: 1.7631
+Saved: training_curves.png
+
+Final validation accuracy: 0.7167
+Saved: multihead_self_attention.png
+
+Example sentence analyzed: beneath the film ' s obvious determination to shock at any cost lies considerable skill and determination , backed by sheer nerve .
+
+Done.

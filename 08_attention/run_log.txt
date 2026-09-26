@@ -1,0 +1,103 @@
+﻿python : WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+At line:3 char:1
++ python attention_seq2seq.py *> run_log.txt
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (WARNING: All lo...itten to STDERR:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+I0000 00:00:1790309265.139826   13868 port.cc:153] oneDNN custom operations are on. You may see slightly different 
+numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the 
+environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+C:\Users\Naveen 
+P\AppData\Local\Programs\Python\Python310\lib\site-packages\google\api_core\_python_version_support.py:266: 
+FutureWarning: You are using a Python version (3.10.11) which Google will stop supporting in new releases of 
+google.api_core once it reaches its end of life (2026-10-04). Please upgrade to the latest Python version, or at least 
+Python 3.11, to continue receiving updates for google.api_core past that date.
+  warnings.warn(message, FutureWarning)
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1790309317.151221   13868 port.cc:153] oneDNN custom operations are on. You may see slightly different 
+numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the 
+environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+I0000 00:00:1790309373.442652   13868 cpu_feature_guard.cc:227] This TensorFlow binary is optimized to use available 
+CPU instructions in performance-critical operations.
+To enable the following instructions: SSE3 SSE4.1 SSE4.2 AVX AVX2 AVX_VNNI FMA, in other operations, rebuild 
+TensorFlow with the appropriate compiler flags.
+WARNING:tensorflow:From C:\Users\Naveen 
+P\AppData\Local\Programs\Python\Python310\lib\site-packages\keras\src\backend\tensorflow\core.py:232: The name 
+tf.placeholder is deprecated. Please use tf.compat.v1.placeholder instead.
+
+WARNING:tensorflow:TensorFlow GPU support is not available on native Windows for TensorFlow >= 2.11. Even if 
+CUDA/cuDNN are installed, GPU will not be used. Please use WSL2 or the TensorFlow-DirectML plugin.
+English vocab: 6000, German vocab: 6000
+Train pairs: 15000, val pairs: 1014
+Model: "functional_1"
+┌─────────────────────┬───────────────────┬────────────┬───────────────────┐
+│ Layer (type)        │ Output Shape      │    Param # │ Connected to      │
+├─────────────────────┼───────────────────┼────────────┼───────────────────┤
+│ encoder_input_train │ (None, 16)        │          0 │ -                 │
+│ (InputLayer)        │                   │            │                   │
+├─────────────────────┼───────────────────┼────────────┼───────────────────┤
+│ decoder_input_train │ (None, 16)        │          0 │ -                 │
+│ (InputLayer)        │                   │            │                   │
+├─────────────────────┼───────────────────┼────────────┼───────────────────┤
+│ functional          │ [(None, 16, 256), │  1,162,240 │ encoder_input_tr… │
+│ (Functional)        │ (None, 256),      │            │                   │
+│                     │ (None, 256)]      │            │                   │
+├─────────────────────┼───────────────────┼────────────┼───────────────────┤
+│ attention_decoder   │ [(None, 16,       │  3,098,225 │ decoder_input_tr… │
+│ (AttentionDecoder)  │ 6000), (None, 16, │            │ functional[0][0], │
+│                     │ 16)]              │            │ functional[0][1], │
+│                     │                   │            │ functional[0][2]  │
+└─────────────────────┴───────────────────┴────────────┴───────────────────┘
+ Total params: 4,260,465 (16.25 MB)
+ Trainable params: 4,260,465 (16.25 MB)
+ Non-trainable params: 0 (0.00 B)
+Epoch 1/10
+E0000 00:00:1790309433.591563   13868 util.cc:131] oneDNN supports DT_BOOL only on platforms with AVX-512. Falling 
+back to the default Eigen-based implementation if present.
+  (checkpoint saved after epoch 1)
+235/235 - 381s - 2s/step - accuracy: 0.3091 - loss: 4.3610 - val_accuracy: 0.3633 - val_loss: 3.8351
+Epoch 2/10
+  (checkpoint saved after epoch 2)
+235/235 - 322s - 1s/step - accuracy: 0.4106 - loss: 3.6441 - val_accuracy: 0.4220 - val_loss: 3.4535
+Epoch 3/10
+  (checkpoint saved after epoch 3)
+235/235 - 109s - 465ms/step - accuracy: 0.4624 - loss: 3.1913 - val_accuracy: 0.4674 - val_loss: 3.0317
+Epoch 4/10
+  (checkpoint saved after epoch 4)
+235/235 - 157s - 668ms/step - accuracy: 0.4946 - loss: 2.8449 - val_accuracy: 0.4866 - val_loss: 2.8038
+Epoch 5/10
+  (checkpoint saved after epoch 5)
+235/235 - 320s - 1s/step - accuracy: 0.5146 - loss: 2.6185 - val_accuracy: 0.5127 - val_loss: 2.6349
+Epoch 6/10
+  (checkpoint saved after epoch 6)
+235/235 - 174s - 743ms/step - accuracy: 0.5387 - loss: 2.4381 - val_accuracy: 0.5271 - val_loss: 2.5110
+Epoch 7/10
+  (checkpoint saved after epoch 7)
+235/235 - 163s - 694ms/step - accuracy: 0.5577 - loss: 2.2902 - val_accuracy: 0.5417 - val_loss: 2.4179
+Epoch 8/10
+  (checkpoint saved after epoch 8)
+235/235 - 215s - 913ms/step - accuracy: 0.5735 - loss: 2.1684 - val_accuracy: 0.5538 - val_loss: 2.3499
+Epoch 9/10
+  (checkpoint saved after epoch 9)
+235/235 - 162s - 687ms/step - accuracy: 0.5891 - loss: 2.0558 - val_accuracy: 0.5646 - val_loss: 2.2761
+Epoch 10/10
+  (checkpoint saved after epoch 10)
+235/235 - 154s - 657ms/step - accuracy: 0.6037 - loss: 1.9472 - val_accuracy: 0.5733 - val_loss: 2.2115
+Saved: training_curves.png
+
+Greedy-decoding validation sample with attention (this takes a bit)...
+
+Mean BLEU (attention model) over 300 validation sentences: 0.0840
+  length 1-5: mean BLEU = nan  (n=0)
+  length 6-8: mean BLEU = 0.1130  (n=27)
+  length 9-11: mean BLEU = 0.0814  (n=96)
+  length 12-14: mean BLEU = 0.0827  (n=85)
+  length 15+: mean BLEU = 0.0794  (n=92)
+Saved: bleu_vs_length_with_attention.png
+Saved: attention_heatmap.png
+
+Example: many asian children made a train under a viet nam sign .
+-> <sos> der <unk> steht vor einem <unk> <unk> , während ein <unk> .
+
+Done.

@@ -1,0 +1,32 @@
+EN:   a man slouched in a chair on a city sidewalk girl watching .
+DE (true): ein mann lümmelt auf einem gehweg in einer stadt auf einem stuhl und sieht den frauen nach .
+DE (pred): <sos> ein mann in einem gelben kleid geht auf einem bürgersteig mit blick auf dem
+
+EN:   a man with a bucket and a girl in a hat on the beach .
+DE (true): ein mann mit einem eimer und ein mädchen mit einem hut am strand .
+DE (pred): <sos> ein mann mit einem blauen hemd und helm auf einem fahrrad .
+
+EN:   many asian children made a train under a viet nam sign .
+DE (true): viele asiatische kinder bilden einen zug unter einem vietnam schild .
+DE (pred): <sos> eine asiatische band , die in einem <unk> vor einer menschenmenge vor .
+
+EN:   a group of people running a marathon in the winter .
+DE (true): eine gruppe von menschen läuft bei einem marathon im winter .
+DE (pred): <sos> eine gruppe von personen läuft auf einem feldweg .
+
+EN:   three men on horses during a race .
+DE (true): drei männer auf pferden während eines rennens .
+DE (pred): <sos> drei männer auf einem <unk> auf dem spielfeld .
+
+EN:   three men ride in a dark blue car .
+DE (true): drei männer fahren in einem dunkelblauen auto .
+DE (pred): <sos> drei männer in einem <unk> restaurant auf einem markt .
+
+EN:   there is a man wrapped in a blanket of some sort sliding down a hill that is covered in snow .
+DE (true): da ist ein mann , der in irgendeine decke gewickelt ist und einen schneebedeckten hügel herunterrutscht .
+DE (pred): <sos> ein mann arbeitet an einem <unk> , während eine frau in der hand zu
+
+EN:   a man in a red and white striped shirts sits on a stool at a hotdog stand .
+DE (true): ein mann in einem rot weiß gestreiften hemd sitzt auf einem hocker an einem hotdog stand .
+DE (pred): <sos> ein mann in einem blauen hemd und jeans sitzt auf einem stuhl auf einem
+

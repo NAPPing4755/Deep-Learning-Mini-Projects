@@ -1,0 +1,120 @@
+﻿python : WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+At line:2 char:1
++ python bidirectional_rnn.py *> run_log.txt
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (WARNING: All lo...itten to STDERR:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+I0000 00:00:1790242829.575983   10192 port.cc:153] oneDNN custom operations are on. You may see slightly different 
+numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the 
+environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+C:\Users\Naveen 
+P\AppData\Local\Programs\Python\Python310\lib\site-packages\google\api_core\_python_version_support.py:266: 
+FutureWarning: You are using a Python version (3.10.11) which Google will stop supporting in new releases of 
+google.api_core once it reaches its end of life (2026-10-04). Please upgrade to the latest Python version, or at least 
+Python 3.11, to continue receiving updates for google.api_core past that date.
+  warnings.warn(message, FutureWarning)
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1790242834.036029   10192 port.cc:153] oneDNN custom operations are on. You may see slightly different 
+numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the 
+environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+I0000 00:00:1790242846.765568   10192 cpu_feature_guard.cc:227] This TensorFlow binary is optimized to use available 
+CPU instructions in performance-critical operations.
+To enable the following instructions: SSE3 SSE4.1 SSE4.2 AVX AVX2 AVX_VNNI FMA, in other operations, rebuild 
+TensorFlow with the appropriate compiler flags.
+WARNING:tensorflow:TensorFlow GPU support is not available on native Windows for TensorFlow >= 2.11. Even if 
+CUDA/cuDNN are installed, GPU will not be used. Please use WSL2 or the TensorFlow-DirectML plugin.
+Vocab size: 21011, num tags: 9
+Train sentences: 14041, val sentences: 3250
+
+======================================================================
+Training: Unidirectional LSTM
+======================================================================
+Epoch 1/12
+E0000 00:00:1790242852.600072   10192 util.cc:131] oneDNN supports DT_BOOL only on platforms with AVX-512. Falling 
+back to the default Eigen-based implementation if present.
+439/439 - 41s - 93ms/step - accuracy: 0.8970 - loss: 0.3729 - val_accuracy: 0.9420 - val_loss: 0.2065
+Epoch 2/12
+439/439 - 33s - 76ms/step - accuracy: 0.9696 - loss: 0.1029 - val_accuracy: 0.9461 - val_loss: 0.1906
+Epoch 3/12
+439/439 - 37s - 84ms/step - accuracy: 0.9814 - loss: 0.0601 - val_accuracy: 0.9488 - val_loss: 0.1900
+Epoch 4/12
+439/439 - 37s - 85ms/step - accuracy: 0.9861 - loss: 0.0428 - val_accuracy: 0.9492 - val_loss: 0.2154
+Epoch 5/12
+439/439 - 27s - 62ms/step - accuracy: 0.9894 - loss: 0.0321 - val_accuracy: 0.9481 - val_loss: 0.2297
+Epoch 6/12
+439/439 - 38s - 86ms/step - accuracy: 0.9913 - loss: 0.0257 - val_accuracy: 0.9477 - val_loss: 0.2580
+Epoch 7/12
+439/439 - 38s - 86ms/step - accuracy: 0.9926 - loss: 0.0218 - val_accuracy: 0.9480 - val_loss: 0.2585
+Epoch 8/12
+439/439 - 34s - 78ms/step - accuracy: 0.9944 - loss: 0.0170 - val_accuracy: 0.9481 - val_loss: 0.2649
+Epoch 9/12
+439/439 - 33s - 75ms/step - accuracy: 0.9950 - loss: 0.0144 - val_accuracy: 0.9467 - val_loss: 0.2772
+Epoch 10/12
+439/439 - 33s - 75ms/step - accuracy: 0.9955 - loss: 0.0127 - val_accuracy: 0.9477 - val_loss: 0.2916
+Epoch 11/12
+439/439 - 32s - 73ms/step - accuracy: 0.9958 - loss: 0.0117 - val_accuracy: 0.9475 - val_loss: 0.3108
+Epoch 12/12
+439/439 - 31s - 71ms/step - accuracy: 0.9961 - loss: 0.0108 - val_accuracy: 0.9462 - val_loss: 0.3274
+
+Unidirectional LSTM - entity-level F1: 0.7428
+              precision    recall  f1-score   support
+
+         LOC      0.817     0.818     0.818      1837
+        MISC      0.738     0.676     0.706       920
+         ORG      0.656     0.614     0.635      1341
+         PER      0.809     0.724     0.764      1809
+
+   micro avg      0.766     0.721     0.743      5907
+   macro avg      0.755     0.708     0.730      5907
+weighted avg      0.766     0.721     0.742      5907
+
+
+======================================================================
+Training: Bidirectional LSTM
+======================================================================
+Epoch 1/12
+439/439 - 48s - 110ms/step - accuracy: 0.9123 - loss: 0.3244 - val_accuracy: 0.9526 - val_loss: 0.1635
+Epoch 2/12
+439/439 - 36s - 83ms/step - accuracy: 0.9790 - loss: 0.0719 - val_accuracy: 0.9562 - val_loss: 0.1585
+Epoch 3/12
+439/439 - 37s - 85ms/step - accuracy: 0.9900 - loss: 0.0336 - val_accuracy: 0.9583 - val_loss: 0.1668
+Epoch 4/12
+439/439 - 39s - 90ms/step - accuracy: 0.9943 - loss: 0.0193 - val_accuracy: 0.9577 - val_loss: 0.1913
+Epoch 5/12
+439/439 - 37s - 84ms/step - accuracy: 0.9966 - loss: 0.0117 - val_accuracy: 0.9569 - val_loss: 0.2069
+Epoch 6/12
+439/439 - 32s - 73ms/step - accuracy: 0.9976 - loss: 0.0078 - val_accuracy: 0.9587 - val_loss: 0.2120
+Epoch 7/12
+439/439 - 36s - 81ms/step - accuracy: 0.9984 - loss: 0.0052 - val_accuracy: 0.9570 - val_loss: 0.2214
+Epoch 8/12
+439/439 - 35s - 79ms/step - accuracy: 0.9988 - loss: 0.0041 - val_accuracy: 0.9574 - val_loss: 0.2337
+Epoch 9/12
+439/439 - 35s - 81ms/step - accuracy: 0.9992 - loss: 0.0025 - val_accuracy: 0.9565 - val_loss: 0.2431
+Epoch 10/12
+439/439 - 35s - 79ms/step - accuracy: 0.9994 - loss: 0.0018 - val_accuracy: 0.9568 - val_loss: 0.2494
+Epoch 11/12
+439/439 - 36s - 81ms/step - accuracy: 0.9994 - loss: 0.0020 - val_accuracy: 0.9551 - val_loss: 0.3079
+Epoch 12/12
+439/439 - 37s - 83ms/step - accuracy: 0.9987 - loss: 0.0039 - val_accuracy: 0.9555 - val_loss: 0.2742
+
+Bidirectional LSTM - entity-level F1: 0.7841
+              precision    recall  f1-score   support
+
+         LOC      0.885     0.848     0.866      1837
+        MISC      0.826     0.733     0.776       920
+         ORG      0.688     0.697     0.693      1341
+         PER      0.830     0.725     0.774      1809
+
+   micro avg      0.812     0.758     0.784      5907
+   macro avg      0.807     0.751     0.777      5907
+weighted avg      0.814     0.758     0.785      5907
+
+
+Saved: training_curves.png
+Saved: entity_f1_comparison.png
+Saved: classification_reports.txt
+
+Final comparison:
+  Unidirectional LSTM    entity F1=0.7428  params=1,378,313
+  Bidirectional LSTM     entity F1=0.7841  params=1,411,913

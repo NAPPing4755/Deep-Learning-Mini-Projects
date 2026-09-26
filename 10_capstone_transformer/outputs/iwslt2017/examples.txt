@@ -1,0 +1,30 @@
+EN:   but , ancient greece and ancient rome people did not happen to believe that creativity came from human beings back then , ok ?
+DE true:  aber im alten griechenland und rom haben die menschen nicht geglaubt , dass kreativität von menschen kommt , okay ?
+DE greedy: <sos> aber <unk> <unk> und <unk> <unk> , <unk> , dass nicht mehr als die <unk> <unk> in der <unk> <unk> .
+DE beam-3: aber <unk> <unk> und <unk> <unk> , <unk> , dass nicht mehr als <unk> als <unk> in der <unk> <unk> .
+
+EN:   but if you don't do that , you know what , the hell with it .
+DE true:  okay . aber , wenn du das nicht tust . . . weißt du was , dann zum teufel damit .
+DE greedy: <sos> aber wenn sie nicht nicht , was sie wissen , was ist , was es mit <unk> .
+DE beam-3: aber wenn man nicht nicht , was sie wissen , was ist .
+
+EN:   so , this man's grandfather was not intimidated by the arctic night or the blizzard that was blowing .
+DE true:  der großvater des mannes fürchtete sich nicht vor der arktischen nacht oder dem wehenden sturm .
+DE greedy: <sos> das ist also , dass es nicht <unk> <unk> , oder <unk> <unk> , oder die <unk> <unk> .
+DE beam-3: das ist also <unk> , dass nicht <unk> , oder die <unk> <unk> , oder die <unk> <unk> .
+
+EN:   an amazing example of how a nation state can seek restitution with its people .
+DE true:  ein erstaunliches beispiel , wie eine nation , ein staat , die wiedergutmachung mit seinen einwohnern suchen und erreichen kann .
+DE greedy: <sos> ein <unk> , wie ein <unk> , wie sie <unk> <unk> <unk> .
+DE beam-3: ein paar <unk> , wie eine <unk> <unk> <unk> können .
+
+EN:   i still have maybe another four decades of work left in me .
+DE true:  ich habe vielleicht noch weitere arbeitsjahre in mir .
+DE greedy: <sos> ich habe nicht nur eine <unk> , um mich zu tun .
+DE beam-3: ich habe nicht mehr als <unk> , um mich auf mich <unk> .
+
+EN:   so , this is the publication we had just a short while ago .
+DE true:  das ist die publikation die wir erst kürzlich fertig gestellt haben .
+DE greedy: <sos> also , das ist also eine art , um die leute von jahren .
+DE beam-3: also , das ist , dass wir ein paar jahre alt sind .
+

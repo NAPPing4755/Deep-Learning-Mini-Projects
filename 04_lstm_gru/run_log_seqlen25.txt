@@ -1,0 +1,149 @@
+﻿python : WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+At line:2 char:1
++ python lstm_gru.py *> run_log.txt
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (WARNING: All lo...itten to STDERR:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+I0000 00:00:1790224818.215675   24492 port.cc:153] oneDNN custom operations are on. You may see slightly different 
+numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the 
+environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+C:\Users\Naveen 
+P\AppData\Local\Programs\Python\Python310\lib\site-packages\google\api_core\_python_version_support.py:266: 
+FutureWarning: You are using a Python version (3.10.11) which Google will stop supporting in new releases of 
+google.api_core once it reaches its end of life (2026-10-04). Please upgrade to the latest Python version, or at least 
+Python 3.11, to continue receiving updates for google.api_core past that date.
+  warnings.warn(message, FutureWarning)
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1790224827.372696   24492 port.cc:153] oneDNN custom operations are on. You may see slightly different 
+numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the 
+environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+I0000 00:00:1790224840.236202   24492 cpu_feature_guard.cc:227] This TensorFlow binary is optimized to use available 
+CPU instructions in performance-critical operations.
+To enable the following instructions: SSE3 SSE4.1 SSE4.2 AVX AVX2 AVX_VNNI FMA, in other operations, rebuild 
+TensorFlow with the appropriate compiler flags.
+WARNING:tensorflow:TensorFlow GPU support is not available on native Windows for TensorFlow >= 2.11. Even if 
+CUDA/cuDNN are installed, GPU will not be used. Please use WSL2 or the TensorFlow-DirectML plugin.
+======================================================================
+PART 1: LSTM / GRU cell anatomy - one time step, gates exposed
+======================================================================
+
+LSTM step:
+  forget gate f_t (mean=0.501) - close to 1 means 'keep old cell state'
+  input  gate i_t (mean=0.486) - close to 1 means 'accept new candidate'
+  output gate o_t (mean=0.475) - close to 1 means 'expose full cell state as h_t'
+  resulting cell state c_t: [-0.01149166  0.05873682  0.00656078 -0.05470575  0.05622432]
+  resulting hidden state h_t: [-0.00596539  0.02546563  0.00316274 -0.02563768  0.02648359]
+
+GRU step:
+  update gate z_t (mean=0.506) - close to 1 means 'favor the new candidate'
+  reset  gate r_t (mean=0.495) - close to 0 means 'ignore h_prev when forming candidate'
+  resulting hidden state h_t: [ 0.00571524  0.02627574 -0.04198083 -0.06015451 -0.06222099]
+
+======================================================================
+PART 2: SimpleRNN vs LSTM vs GRU - same task as Project 3
+======================================================================
+Vocab size: 58, train sequences: 17977, val sequences: 1998
+
+--- Training SimpleRNN ---
+Epoch 1/15
+141/141 - 7s - 51ms/step - accuracy: 0.2446 - loss: 2.8320 - val_accuracy: 0.3198 - val_loss: 2.3927
+Epoch 2/15
+141/141 - 2s - 17ms/step - accuracy: 0.3518 - loss: 2.2829 - val_accuracy: 0.3524 - val_loss: 2.2010
+Epoch 3/15
+141/141 - 3s - 19ms/step - accuracy: 0.3865 - loss: 2.1386 - val_accuracy: 0.3969 - val_loss: 2.1078
+Epoch 4/15
+141/141 - 3s - 19ms/step - accuracy: 0.4091 - loss: 2.0482 - val_accuracy: 0.4094 - val_loss: 2.0575
+Epoch 5/15
+141/141 - 5s - 33ms/step - accuracy: 0.4253 - loss: 1.9798 - val_accuracy: 0.4234 - val_loss: 2.0249
+Epoch 6/15
+141/141 - 2s - 16ms/step - accuracy: 0.4377 - loss: 1.9239 - val_accuracy: 0.4289 - val_loss: 2.0013
+Epoch 7/15
+141/141 - 2s - 17ms/step - accuracy: 0.4456 - loss: 1.8746 - val_accuracy: 0.4269 - val_loss: 1.9772
+Epoch 8/15
+141/141 - 3s - 19ms/step - accuracy: 0.4575 - loss: 1.8335 - val_accuracy: 0.4314 - val_loss: 1.9681
+Epoch 9/15
+141/141 - 5s - 34ms/step - accuracy: 0.4664 - loss: 1.7986 - val_accuracy: 0.4304 - val_loss: 1.9630
+Epoch 10/15
+141/141 - 3s - 25ms/step - accuracy: 0.4761 - loss: 1.7700 - val_accuracy: 0.4404 - val_loss: 1.9571
+Epoch 11/15
+141/141 - 5s - 32ms/step - accuracy: 0.4798 - loss: 1.7458 - val_accuracy: 0.4349 - val_loss: 1.9569
+Epoch 12/15
+141/141 - 5s - 32ms/step - accuracy: 0.4859 - loss: 1.7263 - val_accuracy: 0.4364 - val_loss: 1.9604
+Epoch 13/15
+141/141 - 4s - 32ms/step - accuracy: 0.4888 - loss: 1.7128 - val_accuracy: 0.4394 - val_loss: 1.9615
+Epoch 14/15
+141/141 - 3s - 23ms/step - accuracy: 0.4907 - loss: 1.7017 - val_accuracy: 0.4449 - val_loss: 1.9633
+Epoch 15/15
+141/141 - 2s - 18ms/step - accuracy: 0.4935 - loss: 1.6906 - val_accuracy: 0.4424 - val_loss: 1.9602
+
+--- Training LSTM ---
+Epoch 1/15
+141/141 - 10s - 72ms/step - accuracy: 0.2287 - loss: 2.9346 - val_accuracy: 0.2923 - val_loss: 2.5875
+Epoch 2/15
+141/141 - 10s - 68ms/step - accuracy: 0.3130 - loss: 2.4317 - val_accuracy: 0.3303 - val_loss: 2.3271
+Epoch 3/15
+141/141 - 5s - 37ms/step - accuracy: 0.3432 - loss: 2.2730 - val_accuracy: 0.3544 - val_loss: 2.1964
+Epoch 4/15
+141/141 - 5s - 38ms/step - accuracy: 0.3734 - loss: 2.1692 - val_accuracy: 0.3664 - val_loss: 2.1267
+Epoch 5/15
+141/141 - 10s - 73ms/step - accuracy: 0.3943 - loss: 2.0981 - val_accuracy: 0.3744 - val_loss: 2.0807
+Epoch 6/15
+141/141 - 6s - 42ms/step - accuracy: 0.4077 - loss: 2.0402 - val_accuracy: 0.3924 - val_loss: 2.0419
+Epoch 7/15
+141/141 - 6s - 43ms/step - accuracy: 0.4219 - loss: 1.9907 - val_accuracy: 0.4064 - val_loss: 2.0053
+Epoch 8/15
+141/141 - 7s - 47ms/step - accuracy: 0.4327 - loss: 1.9490 - val_accuracy: 0.4189 - val_loss: 1.9791
+Epoch 9/15
+141/141 - 10s - 67ms/step - accuracy: 0.4407 - loss: 1.9121 - val_accuracy: 0.4309 - val_loss: 1.9570
+Epoch 10/15
+141/141 - 11s - 76ms/step - accuracy: 0.4475 - loss: 1.8783 - val_accuracy: 0.4349 - val_loss: 1.9407
+Epoch 11/15
+141/141 - 9s - 66ms/step - accuracy: 0.4526 - loss: 1.8480 - val_accuracy: 0.4349 - val_loss: 1.9250
+Epoch 12/15
+141/141 - 5s - 39ms/step - accuracy: 0.4593 - loss: 1.8201 - val_accuracy: 0.4409 - val_loss: 1.9143
+Epoch 13/15
+141/141 - 5s - 38ms/step - accuracy: 0.4647 - loss: 1.7945 - val_accuracy: 0.4424 - val_loss: 1.9059
+Epoch 14/15
+141/141 - 11s - 81ms/step - accuracy: 0.4699 - loss: 1.7707 - val_accuracy: 0.4409 - val_loss: 1.8998
+Epoch 15/15
+141/141 - 10s - 68ms/step - accuracy: 0.4747 - loss: 1.7487 - val_accuracy: 0.4424 - val_loss: 1.8954
+
+--- Training GRU ---
+Epoch 1/15
+141/141 - 17s - 119ms/step - accuracy: 0.2542 - loss: 2.7951 - val_accuracy: 0.3103 - val_loss: 2.4217
+Epoch 2/15
+141/141 - 14s - 100ms/step - accuracy: 0.3536 - loss: 2.2770 - val_accuracy: 0.3699 - val_loss: 2.1925
+Epoch 3/15
+141/141 - 6s - 45ms/step - accuracy: 0.4011 - loss: 2.0888 - val_accuracy: 0.3859 - val_loss: 2.0778
+Epoch 4/15
+141/141 - 8s - 59ms/step - accuracy: 0.4278 - loss: 1.9699 - val_accuracy: 0.4214 - val_loss: 2.0046
+Epoch 5/15
+141/141 - 7s - 52ms/step - accuracy: 0.4492 - loss: 1.8796 - val_accuracy: 0.4324 - val_loss: 1.9580
+Epoch 6/15
+141/141 - 11s - 80ms/step - accuracy: 0.4670 - loss: 1.8072 - val_accuracy: 0.4444 - val_loss: 1.9261
+Epoch 7/15
+141/141 - 10s - 73ms/step - accuracy: 0.4810 - loss: 1.7462 - val_accuracy: 0.4525 - val_loss: 1.9073
+Epoch 8/15
+141/141 - 6s - 42ms/step - accuracy: 0.4971 - loss: 1.6935 - val_accuracy: 0.4575 - val_loss: 1.8962
+Epoch 9/15
+141/141 - 11s - 75ms/step - accuracy: 0.5089 - loss: 1.6476 - val_accuracy: 0.4580 - val_loss: 1.8997
+Epoch 10/15
+141/141 - 13s - 89ms/step - accuracy: 0.5188 - loss: 1.6086 - val_accuracy: 0.4570 - val_loss: 1.8985
+Epoch 11/15
+141/141 - 8s - 60ms/step - accuracy: 0.5290 - loss: 1.5739 - val_accuracy: 0.4550 - val_loss: 1.9049
+Epoch 12/15
+141/141 - 10s - 72ms/step - accuracy: 0.5343 - loss: 1.5440 - val_accuracy: 0.4600 - val_loss: 1.9085
+Epoch 13/15
+141/141 - 8s - 56ms/step - accuracy: 0.5414 - loss: 1.5213 - val_accuracy: 0.4615 - val_loss: 1.9180
+Epoch 14/15
+141/141 - 8s - 56ms/step - accuracy: 0.5479 - loss: 1.5045 - val_accuracy: 0.4565 - val_loss: 1.9260
+Epoch 15/15
+141/141 - 11s - 76ms/step - accuracy: 0.5484 - loss: 1.4873 - val_accuracy: 0.4635 - val_loss: 1.9378
+
+Saved: rnn_vs_lstm_vs_gru.png
+
+Final validation accuracy:
+  SimpleRNN  acc=0.4424  loss=1.9602  params=11,834
+  LSTM       acc=0.4424  loss=1.8954  params=30,458
+  GRU        acc=0.4635  loss=1.9378  params=24,442

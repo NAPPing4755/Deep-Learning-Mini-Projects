@@ -1,0 +1,30 @@
+EN:   a man slouched in a chair on a city sidewalk girl watching .
+DE true:  ein mann lümmelt auf einem gehweg in einer stadt auf einem stuhl und sieht den frauen nach .
+DE greedy: <sos> ein mann macht einen stuhl auf einem stuhl auf einem stuhl .
+DE beam-3: ein mann macht auf einem stuhl auf einem stuhl und ein mädchen schauen zu .
+
+EN:   a man with a bucket and a girl in a hat on the beach .
+DE true:  ein mann mit einem eimer und ein mädchen mit einem hut am strand .
+DE greedy: <sos> ein mann mit einem eimer und ein mädchen im hut auf dem kopf .
+DE beam-3: ein mann mit einem eimer und ein mädchen in einem hut auf dem strand .
+
+EN:   many asian children made a train under a viet nam sign .
+DE true:  viele asiatische kinder bilden einen zug unter einem vietnam schild .
+DE greedy: <sos> viele asiatische kinder aus einem zug verkauft <unk> .
+DE beam-3: viele asiatische kinder machen unter einem zug .
+
+EN:   a group of people running a marathon in the winter .
+DE true:  eine gruppe von menschen läuft bei einem marathon im winter .
+DE greedy: <sos> eine gruppe von menschen läuft auf einem markt .
+DE beam-3: eine gruppe von menschen läuft auf einem markt .
+
+EN:   three men on horses during a race .
+DE true:  drei männer auf pferden während eines rennens .
+DE greedy: <sos> drei männer auf pferden bei einem rennen .
+DE beam-3: drei männer auf pferden bei einem rennen .
+
+EN:   three men ride in a dark blue car .
+DE true:  drei männer fahren in einem dunkelblauen auto .
+DE greedy: <sos> drei männer fahren in einem dunklen auto .
+DE beam-3: drei männer fahren in einem dunklen auto .
+

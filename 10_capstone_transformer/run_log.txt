@@ -1,0 +1,246 @@
+﻿python : WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+At line:3 char:1
++ python transformer.py *> run_log.txt
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (WARNING: All lo...itten to STDERR:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+I0000 00:00:1790318429.161969   26976 port.cc:153] oneDNN custom operations are on. You may see slightly different 
+numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the 
+environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+C:\Users\Naveen 
+P\AppData\Local\Programs\Python\Python310\lib\site-packages\google\api_core\_python_version_support.py:266: 
+FutureWarning: You are using a Python version (3.10.11) which Google will stop supporting in new releases of 
+google.api_core once it reaches its end of life (2026-10-04). Please upgrade to the latest Python version, or at least 
+Python 3.11, to continue receiving updates for google.api_core past that date.
+  warnings.warn(message, FutureWarning)
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1790318456.022323   26976 port.cc:153] oneDNN custom operations are on. You may see slightly different 
+numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the 
+environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+I0000 00:00:1790318493.512874   26976 cpu_feature_guard.cc:227] This TensorFlow binary is optimized to use available 
+CPU instructions in performance-critical operations.
+To enable the following instructions: SSE3 SSE4.1 SSE4.2 AVX AVX2 AVX_VNNI FMA, in other operations, rebuild 
+TensorFlow with the appropriate compiler flags.
+WARNING:tensorflow:From C:\Users\Naveen 
+P\AppData\Local\Programs\Python\Python310\lib\site-packages\keras\src\backend\tensorflow\core.py:232: The name 
+tf.placeholder is deprecated. Please use tf.compat.v1.placeholder instead.
+
+WARNING:tensorflow:TensorFlow GPU support is not available on native Windows for TensorFlow >= 2.11. Even if 
+CUDA/cuDNN are installed, GPU will not be used. Please use WSL2 or the TensorFlow-DirectML plugin.
+Loading IWSLT2017 (English -> German, TED talk transcripts)...
+
+======================================================================
+EXPERIMENT: iwslt2017
+======================================================================
+  Source vocab: 8000, target vocab: 8000
+  Train pairs: 10417, val pairs: 595
+Model: "functional_4"
+┌─────────────────────┬───────────────────┬────────────┬───────────────────┐
+│ Layer (type)        │ Output Shape      │    Param # │ Connected to      │
+├─────────────────────┼───────────────────┼────────────┼───────────────────┤
+│ decoder_input       │ (None, 26)        │          0 │ -                 │
+│ (InputLayer)        │                   │            │                   │
+├─────────────────────┼───────────────────┼────────────┼───────────────────┤
+│ encoder_input       │ (None, 26)        │          0 │ -                 │
+│ (InputLayer)        │                   │            │                   │
+├─────────────────────┼───────────────────┼────────────┼───────────────────┤
+│ embedding_1         │ (None, 26, 128)   │  1,024,000 │ decoder_input[0]… │
+│ (Embedding)         │                   │            │                   │
+├─────────────────────┼───────────────────┼────────────┼───────────────────┤
+│ embedding           │ (None, 26, 128)   │  1,024,000 │ encoder_input[0]… │
+│ (Embedding)         │                   │            │                   │
+├─────────────────────┼───────────────────┼────────────┼───────────────────┤
+│ positional_encoding │ (None, 26, 128)   │          0 │ embedding[0][0],  │
+│ (PositionalEncodin… │                   │            │ embedding_1[0][0] │
+├─────────────────────┼───────────────────┼────────────┼───────────────────┤
+│ transformer_encode… │ (None, 26, 128)   │    132,480 │ positional_encod… │
+│ (TransformerEncode… │                   │            │                   │
+├─────────────────────┼───────────────────┼────────────┼───────────────────┤
+│ transformer_encode… │ (None, 26, 128)   │    132,480 │ transformer_enco… │
+│ (TransformerEncode… │                   │            │                   │
+├─────────────────────┼───────────────────┼────────────┼───────────────────┤
+│ transformer_decode… │ (None, 26, 128)   │    198,784 │ positional_encod… │
+│ (TransformerDecode… │                   │            │ transformer_enco… │
+├─────────────────────┼───────────────────┼────────────┼───────────────────┤
+│ transformer_decode… │ (None, 26, 128)   │    198,784 │ transformer_deco… │
+│ (TransformerDecode… │                   │            │ transformer_enco… │
+├─────────────────────┼───────────────────┼────────────┼───────────────────┤
+│ dense_8 (Dense)     │ (None, 26, 8000)  │  1,032,000 │ transformer_deco… │
+└─────────────────────┴───────────────────┴────────────┴───────────────────┘
+ Total params: 3,742,528 (14.28 MB)
+ Trainable params: 3,742,528 (14.28 MB)
+ Non-trainable params: 0 (0.00 B)
+Epoch 1/7
+163/163 - 193s - 1s/step - accuracy: 0.5002 - loss: 4.3588 - val_accuracy: 0.5470 - val_loss: 2.8991
+Epoch 2/7
+163/163 - 108s - 662ms/step - accuracy: 0.5824 - loss: 2.8444 - val_accuracy: 0.5853 - val_loss: 2.6798
+Epoch 3/7
+163/163 - 144s - 880ms/step - accuracy: 0.5994 - loss: 2.6531 - val_accuracy: 0.6086 - val_loss: 2.5192
+Epoch 4/7
+163/163 - 98s - 602ms/step - accuracy: 0.6209 - loss: 2.4636 - val_accuracy: 0.6272 - val_loss: 2.3703
+Epoch 5/7
+163/163 - 104s - 635ms/step - accuracy: 0.6380 - loss: 2.2979 - val_accuracy: 0.6354 - val_loss: 2.2868
+Epoch 6/7
+163/163 - 95s - 582ms/step - accuracy: 0.6526 - loss: 2.1530 - val_accuracy: 0.6406 - val_loss: 2.2300
+Epoch 7/7
+163/163 - 95s - 583ms/step - accuracy: 0.6652 - loss: 2.0239 - val_accuracy: 0.6470 - val_loss: 2.2034
+
+Evaluating (greedy + beam-3) on 250 validation sentences...
+Mean BLEU - greedy: 0.0421, beam-3: 0.0471
+  length 1-5: mean BLEU (beam) = 0.16226890340937683  (n=13)
+  length 6-8: mean BLEU (beam) = 0.06802639744476209  (n=42)
+  length 9-11: mean BLEU (beam) = 0.04382441624915897  (n=48)
+  length 12-14: mean BLEU (beam) = 0.047467964187673226  (n=39)
+  length 15+: mean BLEU (beam) = 0.02638136364907389  (n=108)
+EN:   but , ancient greece and ancient rome people did not happen to believe that creativity came from human beings back then , ok ?
+DE true:  aber im alten griechenland und rom haben die menschen nicht geglaubt , dass kreativität von menschen kommt , okay ?
+DE greedy: <sos> aber <unk> <unk> und <unk> <unk> , <unk> , dass nicht mehr als die <unk> <unk> in der <unk> <unk> .
+DE beam-3: aber <unk> <unk> und <unk> <unk> , <unk> , dass nicht mehr als <unk> als <unk> in der <unk> <unk> .
+
+
+EN:   but if you don't do that , you know what , the hell with it .
+DE true:  okay . aber , wenn du das nicht tust . . . weißt du was , dann zum teufel damit .
+DE greedy: <sos> aber wenn sie nicht nicht , was sie wissen , was ist , was es mit <unk> .
+DE beam-3: aber wenn man nicht nicht , was sie wissen , was ist .
+
+
+EN:   so , this man's grandfather was not intimidated by the arctic night or the blizzard that was blowing .
+DE true:  der großvater des mannes fürchtete sich nicht vor der arktischen nacht oder dem wehenden sturm .
+DE greedy: <sos> das ist also , dass es nicht <unk> <unk> , oder <unk> <unk> , oder die <unk> <unk> .
+DE beam-3: das ist also <unk> , dass nicht <unk> , oder die <unk> <unk> , oder die <unk> <unk> .
+
+
+EN:   an amazing example of how a nation state can seek restitution with its people .
+DE true:  ein erstaunliches beispiel , wie eine nation , ein staat , die wiedergutmachung mit seinen einwohnern suchen und erreichen kann .
+DE greedy: <sos> ein <unk> , wie ein <unk> , wie sie <unk> <unk> <unk> .
+DE beam-3: ein paar <unk> , wie eine <unk> <unk> <unk> können .
+
+
+EN:   i still have maybe another four decades of work left in me .
+DE true:  ich habe vielleicht noch weitere arbeitsjahre in mir .
+DE greedy: <sos> ich habe nicht nur eine <unk> , um mich zu tun .
+DE beam-3: ich habe nicht mehr als <unk> , um mich auf mich <unk> .
+
+
+EN:   so , this is the publication we had just a short while ago .
+DE true:  das ist die publikation die wir erst kürzlich fertig gestellt haben .
+DE greedy: <sos> also , das ist also eine art , um die leute von jahren .
+DE beam-3: also , das ist , dass wir ein paar jahre alt sind .
+
+
+
+Saved all outputs to C:\Users\Naveen P\OneDrive - AadiSwan Info Consultants Pvt.Ltd\Documents\Naveen AP Files\AI Agents\DL_Mini_Projects\10_capstone_transformer\outputs\iwslt2017
+Saved: cross_attention_heatmap.png
+
+Loading Multi30k (secondary run - same setup as Projects 6/7/8, for direct comparison)...
+
+======================================================================
+EXPERIMENT: multi30k
+======================================================================
+  Source vocab: 7154, target vocab: 8000
+  Train pairs: 15000, val pairs: 1014
+Model: "functional_10"
+┌─────────────────────┬───────────────────┬────────────┬───────────────────┐
+│ Layer (type)        │ Output Shape      │    Param # │ Connected to      │
+├─────────────────────┼───────────────────┼────────────┼───────────────────┤
+│ decoder_input       │ (None, 26)        │          0 │ -                 │
+│ (InputLayer)        │                   │            │                   │
+├─────────────────────┼───────────────────┼────────────┼───────────────────┤
+│ encoder_input       │ (None, 26)        │          0 │ -                 │
+│ (InputLayer)        │                   │            │                   │
+├─────────────────────┼───────────────────┼────────────┼───────────────────┤
+│ embedding_3         │ (None, 26, 128)   │  1,024,000 │ decoder_input[0]… │
+│ (Embedding)         │                   │            │                   │
+├─────────────────────┼───────────────────┼────────────┼───────────────────┤
+│ embedding_2         │ (None, 26, 128)   │    915,712 │ encoder_input[0]… │
+│ (Embedding)         │                   │            │                   │
+├─────────────────────┼───────────────────┼────────────┼───────────────────┤
+│ positional_encodin… │ (None, 26, 128)   │          0 │ embedding_2[0][0… │
+│ (PositionalEncodin… │                   │            │ embedding_3[0][0] │
+├─────────────────────┼───────────────────┼────────────┼───────────────────┤
+│ transformer_encode… │ (None, 26, 128)   │    132,480 │ positional_encod… │
+│ (TransformerEncode… │                   │            │                   │
+├─────────────────────┼───────────────────┼────────────┼───────────────────┤
+│ transformer_encode… │ (None, 26, 128)   │    132,480 │ transformer_enco… │
+│ (TransformerEncode… │                   │            │                   │
+├─────────────────────┼───────────────────┼────────────┼───────────────────┤
+│ transformer_decode… │ (None, 26, 128)   │    198,784 │ positional_encod… │
+│ (TransformerDecode… │                   │            │ transformer_enco… │
+├─────────────────────┼───────────────────┼────────────┼───────────────────┤
+│ transformer_decode… │ (None, 26, 128)   │    198,784 │ transformer_deco… │
+│ (TransformerDecode… │                   │            │ transformer_enco… │
+├─────────────────────┼───────────────────┼────────────┼───────────────────┤
+│ dense_17 (Dense)    │ (None, 26, 8000)  │  1,032,000 │ transformer_deco… │
+└─────────────────────┴───────────────────┴────────────┴───────────────────┘
+ Total params: 3,634,240 (13.86 MB)
+ Trainable params: 3,634,240 (13.86 MB)
+ Non-trainable params: 0 (0.00 B)
+Epoch 1/7
+235/235 - 268s - 1s/step - accuracy: 0.5699 - loss: 3.5211 - val_accuracy: 0.6300 - val_loss: 2.2910
+Epoch 2/7
+235/235 - 218s - 927ms/step - accuracy: 0.6691 - loss: 1.9852 - val_accuracy: 0.6841 - val_loss: 1.8541
+Epoch 3/7
+235/235 - 193s - 821ms/step - accuracy: 0.7202 - loss: 1.6297 - val_accuracy: 0.7145 - val_loss: 1.6285
+Epoch 4/7
+235/235 - 185s - 787ms/step - accuracy: 0.7533 - loss: 1.3893 - val_accuracy: 0.7422 - val_loss: 1.4555
+Epoch 5/7
+235/235 - 176s - 750ms/step - accuracy: 0.7806 - loss: 1.1966 - val_accuracy: 0.7516 - val_loss: 1.3812
+Epoch 6/7
+235/235 - 157s - 670ms/step - accuracy: 0.8018 - loss: 1.0504 - val_accuracy: 0.7630 - val_loss: 1.3061
+Epoch 7/7
+235/235 - 166s - 706ms/step - accuracy: 0.8183 - loss: 0.9283 - val_accuracy: 0.7738 - val_loss: 1.2619
+
+Evaluating (greedy + beam-3) on 250 validation sentences...
+Mean BLEU - greedy: 0.2001, beam-3: 0.2192
+  length 1-5: mean BLEU (beam) = None  (n=0)
+  length 6-8: mean BLEU (beam) = 0.23477858757365844  (n=22)
+  length 9-11: mean BLEU (beam) = 0.20852101325835942  (n=80)
+  length 12-14: mean BLEU (beam) = 0.2420100661978425  (n=70)
+  length 15+: mean BLEU (beam) = 0.20519202371119186  (n=78)
+EN:   a man slouched in a chair on a city sidewalk girl watching .
+DE true:  ein mann lümmelt auf einem gehweg in einer stadt auf einem stuhl und sieht den frauen nach .
+DE greedy: <sos> ein mann macht einen stuhl auf einem stuhl auf einem stuhl .
+DE beam-3: ein mann macht auf einem stuhl auf einem stuhl und ein mädchen schauen zu .
+
+
+EN:   a man with a bucket and a girl in a hat on the beach .
+DE true:  ein mann mit einem eimer und ein mädchen mit einem hut am strand .
+DE greedy: <sos> ein mann mit einem eimer und ein mädchen im hut auf dem kopf .
+DE beam-3: ein mann mit einem eimer und ein mädchen in einem hut auf dem strand .
+
+
+EN:   many asian children made a train under a viet nam sign .
+DE true:  viele asiatische kinder bilden einen zug unter einem vietnam schild .
+DE greedy: <sos> viele asiatische kinder aus einem zug verkauft <unk> .
+DE beam-3: viele asiatische kinder machen unter einem zug .
+
+
+EN:   a group of people running a marathon in the winter .
+DE true:  eine gruppe von menschen läuft bei einem marathon im winter .
+DE greedy: <sos> eine gruppe von menschen läuft auf einem markt .
+DE beam-3: eine gruppe von menschen läuft auf einem markt .
+
+
+EN:   three men on horses during a race .
+DE true:  drei männer auf pferden während eines rennens .
+DE greedy: <sos> drei männer auf pferden bei einem rennen .
+DE beam-3: drei männer auf pferden bei einem rennen .
+
+
+EN:   three men ride in a dark blue car .
+DE true:  drei männer fahren in einem dunkelblauen auto .
+DE greedy: <sos> drei männer fahren in einem dunklen auto .
+DE beam-3: drei männer fahren in einem dunklen auto .
+
+
+
+Saved all outputs to C:\Users\Naveen P\OneDrive - AadiSwan Info Consultants Pvt.Ltd\Documents\Naveen AP Files\AI Agents\DL_Mini_Projects\10_capstone_transformer\outputs\multi30k
+
+======================================================================
+FINAL SUMMARY
+======================================================================
+IWSLT2017  - mean BLEU (beam-3): 0.0471, val acc: 0.6470, params: 3,742,528
+Multi30k   - mean BLEU (beam-3): 0.2192, val acc: 0.7738, params: 3,634,240
+
+Compare Multi30k number above against Projects 6/7/8's README figures for the full RNN-bottleneck -> beam-search -> attention -> Transformer progression.

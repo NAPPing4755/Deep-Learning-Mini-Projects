@@ -1,0 +1,34 @@
+﻿Loaded 20000 characters, vocab size 58
+step     0  smooth_loss=101.511
+  sample: ":j'JrnfslWyifPtH\nA-Iqg?oWVMsI-HjhA.hiMryBb\niRAmp. JfodbpYeYsDF:qPLyvy:tJ\nNW.aqNLJv!SFt,PPtBf:xefRLBdxLt:vLNTkkUY HLbbkkD"
+step   500  smooth_loss=95.291
+  sample: 'n\nW nlbh cite.cfdsd\nChicuhe to uerortsy core tue \nIet lidklrer S.\n\nBTj Nbear f ,uiir cotdar : e koi ho  eaunCoe ar baelr'
+step  1000  smooth_loss=84.798
+  sample: 'ors\n-The Thne sed sos favg nividin si, ranl u, aninat d ,, bt sing aurrl aess, att  h,eas, ath, \nAnear, as,\nRTounl oungs'
+step  1500  smooth_loss=76.553
+  sample: 'acitmgor seced am itnper arith tisil daintpo goats odd arirelntrnge aspne hekt heygaze ikeshag acerl geand!d set bandyg,'
+step  2000  smooth_loss=70.169
+  sample: "nenorel broow meuliges wo'l bos;\nYone ing? in?\n\nRLA:\nENIUTUS:\nFoul winod mounn thes th braslechrebfirtod, whet stranety'"
+step  2500  smooth_loss=66.131
+  sample: "i's, nov, hit\nEIA:\nSarnbns shardicango. whin gay one thour do dim.\n'\nHepasen:\nWhet? buss, send\nneale,ucbnad Circo ve whe"
+Saved: training_loss.png
+Saved: vanishing_gradient.png
+Saved: final_sample.txt
+
+Final generated text sample:
+itl are holeientm gavugkj cants bnot nary mehelr i. ar.
+
+feREean nenice:
+Seoc'?
+Che yeres giyude aly ald fod Soding ouk ofe oo shang yo the sor:
+I dit coul so rinnbre.
+Sum-y wam wor and giLhes; do guse the burive
+Secand beletrevuWete ree,
+
+VEIACs:
+IUNINIUENIULnLNIEINIUS:
+Soir reans.'
+I'll, oudiuralar mo Ied ha thevh mote;
+Mor ave shee, wer koch,
+Ro ve ef thes an mellir:
+Ol inm,ll misd het Materlon

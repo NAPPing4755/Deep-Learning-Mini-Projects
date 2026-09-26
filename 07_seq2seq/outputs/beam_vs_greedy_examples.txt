@@ -1,0 +1,38 @@
+Examples where beam search (width=5) clearly beat greedy search:
+
+EN:          two young girls dressed in pink pajamas sit on the floor in front of large windows playing house .
+DE (true):   zwei kleine mädchen in rosafarbenen schlafanzügen sitzen auf dem boden vor großen fenstern und spielen vater mutter kind .
+Greedy      (BLEU=0.027): <sos> zwei mädchen in einem roten kleid stehen neben einem <unk> mit dem wasser .
+Beam-3      (BLEU=0.154): zwei kleine mädchen in blauen kleidern sitzen auf einer bank und halten die arme
+Beam-5      (BLEU=0.256): zwei kleine mädchen in blauen kleidern sitzen auf dem boden und reden mit einem
+
+EN:          the small brown dog is amidst the potted plants and fallen leaves .
+DE (true):   der kleine braune hund befindet sich inmitten der topfpflanzen und heruntergefallenen blätter .
+Greedy      (BLEU=0.040): <sos> der kleine hund rennt mit dem ball im gras .
+Beam-3      (BLEU=0.202): der kleine braune hund rennt mit dem ball .
+Beam-5      (BLEU=0.202): der kleine braune hund rennt mit dem ball .
+
+EN:          a man in a yellow shirt is standing in the sidewalk measuring .
+DE (true):   ein mann in einem gelben hemd steht auf dem gehweg und nimmt messungen vor .
+Greedy      (BLEU=0.183): <sos> ein mann in einem schwarzen hemd hält ein kleines kind im schnee .
+Beam-3      (BLEU=0.205): ein mann in einem schwarzen hemd steht in der nähe eines sees .
+Beam-5      (BLEU=0.351): ein mann in einem weißen hemd steht auf dem boden und lächelt .
+
+EN:          two little girls in blue dresses laugh .
+DE (true):   zwei kleine mädchen in blauen kleidern lachen .
+Greedy      (BLEU=0.330): <sos> zwei kleine mädchen in einem blauen kleid .
+Beam-3      (BLEU=0.707): zwei kleine mädchen in blauen kleidern spielen .
+Beam-5      (BLEU=0.707): zwei kleine mädchen in blauen kleidern spielen .
+
+EN:          a blond boy in a blue t shirt stands smiling before a craft of green nylon fabric .
+DE (true):   ein blonder junge in einem blauen t shirt steht lächelnd vor einem boot aus grünem nylongewebe .
+Greedy      (BLEU=0.159): <sos> ein kleiner junge in einem blauen hemd hält eine <unk> und schaut in einem
+Beam-3      (BLEU=0.327): ein blonder junge in einem blauen hemd steht vor einem <unk> und hält seine
+Beam-5      (BLEU=0.327): ein blonder junge in einem blauen hemd steht vor einem <unk> und hält seine
+
+EN:          a soccer team player in a green shirt is running off the field .
+DE (true):   ein fußballspieler in einem grünen trikot läuft vom spielfeld .
+Greedy      (BLEU=0.022): <sos> ein einzelner spieler mit einem roten hut läuft durch den schnee .
+Beam-3      (BLEU=0.290): ein fußballspieler in einem roten trikot läuft durch den schnee .
+Beam-5      (BLEU=0.290): ein fußballspieler in einem roten trikot läuft durch den schnee .
+
