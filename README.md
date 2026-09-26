@@ -30,7 +30,7 @@ Each project is self-contained — `cd` into its folder and run its script direc
 
 ---
 
-## Project 1 - ANN From Scratch ✅ Done
+## Project 1 - ANN From Scratch 
 **Folder:** [`01_ann_from_scratch/`](01_ann_from_scratch/)
 **Concepts:** perceptron/ANN intuition, chain rule, backpropagation, activation
 functions (sigmoid/tanh/relu), SGD, SGD with momentum
@@ -45,12 +45,11 @@ What it shows:
 - How the choice of hidden activation (relu/tanh/sigmoid) changes convergence
 
 **Run:** `python 01_ann_from_scratch/ann_from_scratch.py`
-**Read after:** Rumelhart, Hinton & Williams, *"Learning representations by
-back-propagating errors"*, Nature, 1986 — the original backprop paper, ~4 pages.
+
 
 ---
 
-## Project 2 - CNN Architecture + Optimizer Comparison ✅ Done
+## Project 2 - CNN Architecture + Optimizer Comparison
 **Folder:** [`02_cnn_optimizers/`](02_cnn_optimizers/)
 **Concepts:** convolution, weight sharing, pooling, and how optimizer choice
 (SGD / SGD+momentum / RMSprop / Adam) affects the *same* architecture
@@ -75,14 +74,11 @@ Same architecture, same data, same initialization — an 14-point accuracy
 swing purely from the optimizer's update rule.
 
 **Run:** `python 02_cnn_optimizers/cnn_optimizers.py`
-**Read after:** LeCun et al., *"Gradient-Based Learning Applied to Document
-Recognition"*, 1998 (the LeNet-5 paper) for the CNN architecture; Sebastian
-Ruder, *"An overview of gradient descent optimization algorithms"*, 2016
-(arXiv:1609.04747) for the optimizer comparison.
+
 
 ---
 
-## Project 3 - Vanilla RNN: Forward Prop Through Time + BPTT ✅ Done
+## Project 3 - Vanilla RNN: Forward Prop Through Time + BPTT 
 **Folder:** [`03_rnn_forward_backward/`](03_rnn_forward_backward/)
 **Concepts:** recurrence, weight sharing *across time steps*, Backpropagation
 Through Time (BPTT), the vanishing gradient problem
@@ -117,13 +113,11 @@ clearly emerging — see `outputs/final_sample.txt` for the full sample and
 BPTT window.
 
 **Run:** `python 03_rnn_forward_backward/rnn_bptt.py`
-**Read after:** Werbos, *"Backpropagation Through Time: What It Does and How
-to Do It"*, Proceedings of the IEEE, 1990 — short, and it's the paper that
-formalized BPTT.
+
 
 ---
 
-## Project 4 - LSTM and GRU ✅ Done
+## Project 4 - LSTM and GRU 
 **Folder:** [`04_lstm_gru/`](04_lstm_gru/)
 **Concepts:** forget/input/output gates, the cell-state "conveyor belt" that
 gives LSTM its gradient-flow advantage over Project 3's vanilla RNN, GRU as a
@@ -170,7 +164,7 @@ Computation, 1997 — the original LSTM paper; Cho et al., *"Learning Phrase
 Representations using RNN Encoder-Decoder for Statistical Machine
 Translation"*, 2014 (arXiv:1406.1078) — introduces the GRU (Section 2).
 
-## Project 5 - Bidirectional RNN ✅ Done
+## Project 5 - Bidirectional RNN 
 **Folder:** [`05_bidirectional_rnn/`](05_bidirectional_rnn/)
 **Concepts:** processing a sequence forward AND backward and concatenating
 both hidden states at every token, so a tag decision can use context from
@@ -188,12 +182,9 @@ What it shows:
   and type right.
 
 **Run:** `python 05_bidirectional_rnn/bidirectional_rnn.py`
-**Read after:** Graves & Schmidhuber, *"Framewise Phoneme Classification with
-Bidirectional LSTM and Other Neural Network Architectures"*, 2005 — the paper
-that introduced bidirectional LSTM and demonstrated exactly this forward/
-backward context argument.
 
-## Project 6 - Encoder-Decoder Sequence Models ✅ Done
+
+## Project 6 - Encoder-Decoder Sequence Models 
 **Folder:** [`06_encoder_decoder/`](06_encoder_decoder/)
 **Concepts:** splitting "understand the input" (encoder) from "generate the
 output" (decoder), the fixed-size context vector bottleneck, teacher forcing
@@ -214,11 +205,9 @@ What it shows:
   Project 8's attention mechanism is built to solve
 
 **Run:** `python 06_encoder_decoder/encoder_decoder.py`
-**Read after:** Sutskever, Vinyals & Le, *"Sequence to Sequence Learning with
-Neural Networks"*, NeurIPS 2014 (arXiv:1409.3215) — the paper that
-established this exact encoder-decoder architecture for translation.
 
-## Project 7 - Seq2Seq: Greedy vs. Beam Search Decoding ✅ Done
+
+## Project 7 - Seq2Seq: Greedy vs. Beam Search Decoding 
 **Folder:** [`07_seq2seq/`](07_seq2seq/)
 **Concepts:** Project 6 already covered teacher-forced training and greedy
 decoding, so this project isolates the piece that was left simplest -
@@ -240,11 +229,9 @@ What it shows:
   greedy search couldn't reach because of an early wrong commitment
 
 **Run:** `python 07_seq2seq/seq2seq_beam_search.py`
-**Read after:** Sutskever, Vinyals & Le, *"Sequence to Sequence Learning with
-Neural Networks"*, NeurIPS 2014 (Section 3.3 covers their use of beam
-search) — same paper as Project 6, this time focused on the decoding section.
 
-## Project 8 - Attention Mechanism (Bahdanau) ✅ Done
+
+## Project 8 - Attention Mechanism (Bahdanau) 
 **Folder:** [`08_attention/`](08_attention/)
 **Concepts:** solving Project 6's fixed-bottleneck problem by letting the
 decoder look back at ALL encoder hidden states at every generation step,
@@ -282,12 +269,9 @@ follow-up rather than something to paper over here.
 **Run:** `python 08_attention/attention_seq2seq.py` (checkpoints after every
 epoch to `outputs/checkpoint.weights.h5` — safe to interrupt and rerun, it
 resumes automatically)
-**Read after:** Bahdanau, Cho & Bengio, *"Neural Machine Translation by
-Jointly Learning to Align and Translate"*, ICLR 2015 (arXiv:1409.0473) — the
-paper that introduced this exact attention mechanism, motivated by exactly
-Project 6's bottleneck problem.
 
-## Project 9 - Scaled Dot-Product & Multi-Head Attention ✅ Done
+
+## Project 9 - Scaled Dot-Product & Multi-Head Attention 
 **Folder:** [`09_multihead_attention/`](09_multihead_attention/)
 **Concepts:** replacing Project 8's recurrent, learned-MLP attention scoring
 with a single matrix multiply (`softmax(QK^T/√d_k)V`) that scores every
@@ -331,11 +315,9 @@ than all learning the same thing.
 **Run:** `python 09_multihead_attention/multihead_attention.py` (much
 faster than Projects 6-8: self-attention parallelizes across the whole
 sequence, no per-timestep loop)
-**Read after:** Vaswani et al., *"Attention Is All You Need"*, NeurIPS 2017
-(arXiv:1706.03762) — the Transformer paper; Sections 3.2.1-3.2.2 are exactly
-this project's Part 1.
 
-## Project 10 - Capstone: Full Transformer Encoder-Decoder ✅ Done
+
+## Project 10 - Capstone: Full Transformer Encoder-Decoder 
 **Folder:** [`10_capstone_transformer/`](10_capstone_transformer/)
 **Concepts:** every mechanism from this series, assembled into the real
 architecture (Vaswani et al., 2017) — no recurrence anywhere. Encoder:
@@ -385,9 +367,6 @@ signal to work with, and honestly failing where it doesn't — a fair,
 undoctored result rather than a cherry-picked one.
 
 **Run:** `python 10_capstone_transformer/transformer.py`
-**Read after:** Vaswani et al., *"Attention Is All You Need"*, NeurIPS 2017
-(arXiv:1706.03762) — the full paper this project implements, read end to
-end this time rather than just the attention section (Project 9 covered that).
 
 ---
 
@@ -430,11 +409,4 @@ successes.
 
 ---
 
-## Status
 
-All 10 projects are complete ✅ — each one was actually trained end to end
-(not just written), with its real output saved in that project's `outputs/`
-folder. Where a result was surprising, unfavorable, or came with a caveat
-(a confounded epoch budget, overfitting, a length-normalization quirk), the
-corresponding project section above says so directly instead of only
-reporting the flattering numbers.
